@@ -51,7 +51,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="index3.php" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Halaman dashboad Original
@@ -67,6 +67,17 @@
               <p>
                 Halaman Login
                 <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+
+          
+          <li class="nav-item">
+            <a href="logout.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Logout
+             
               </p>
             </a>
           </li>

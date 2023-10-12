@@ -1,13 +1,3 @@
-<?php
-session_start();
-// Menampilkan pesan kesalahan jika ada
-if(isset($_SESSION['pesan'])) {
-    echo "<div style='color: red;'>" . $_SESSION['pesan'] . "</div>";
-    // Hapus pesan dari session setelah ditampilkan
-    unset($_SESSION['pesan']);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +8,11 @@ if(isset($_SESSION['pesan'])) {
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="app/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="app/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="app/dist/css/adminlte.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -32,11 +22,11 @@ if(isset($_SESSION['pesan'])) {
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Selamat datang di halaman login</p>
+      <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="conf/proseslogin.php" method="post" enctype="multipart/form-data">
+      <form action="../../index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -44,7 +34,7 @@ if(isset($_SESSION['pesan'])) {
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -56,19 +46,19 @@ if(isset($_SESSION['pesan'])) {
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
-                Ingat username dan password
+                Remember Me
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-      <!-- <div class="social-auth-links text-center mb-3">
+      <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -76,14 +66,14 @@ if(isset($_SESSION['pesan'])) {
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
         </a>
-      </div> -->
+      </div>
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">Lupa Password?</a>
+        <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.php" class="text-center">Jika Belum punya akun klik disini</a>
+        <a href="register.html" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->
@@ -92,10 +82,10 @@ if(isset($_SESSION['pesan'])) {
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="app/plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="app/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="app/dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 </body>
 </html>
