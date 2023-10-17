@@ -51,7 +51,7 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="dashboard.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Halaman dashboad Original
@@ -71,6 +71,17 @@
             </a>
           </li>
 
+            
+          <li class="nav-item">
+            <a href="crud2.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Halaman CRUD
+             
+              </p>
+            </a>
+          </li>
+
           
           <li class="nav-item">
             <a href="logout.php" class="nav-link">
@@ -81,6 +92,8 @@
               </p>
             </a>
           </li>
+
+          
 
           <!-- /.sidebar -->
     </aside>

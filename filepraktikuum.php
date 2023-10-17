@@ -4,7 +4,7 @@
 //tulis kode disini
 ?>
 
-
+value="<?php echo $row['nis'] ?>
 <?
 // kode disini 
 ?>
