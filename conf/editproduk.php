@@ -1,6 +1,6 @@
 <?php
 include 'con_tbproduk.php';
-
+$id = $_POST['id'];
 $product_name = $_POST['product_name'];
 $category_id = $_POST['category_id'];
 $product_code = $_POST['product_code'];
@@ -25,7 +25,7 @@ $query = mysqli_query($koneksi, "UPDATE products SET
     discount_amount = '$discount_amount',
     stock = '$stock',
     image = '$image'
-    WHERE product_code = '$product_code'");
+    WHERE id = $id");
 
 if ($query){
     ?>

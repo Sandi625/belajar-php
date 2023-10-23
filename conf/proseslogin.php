@@ -13,7 +13,7 @@ if($cek > 0) {
     $_SESSION['username'] = $baris['username'];
     $_SESSION['password'] = $baris['password'];
     $_SESSION['nama_lengkap'] = $baris['nama_lengkap'];
-    header("Location:../app/dashboard.php");
+    header("Location:../app/dasbor.php");
 } else {
     // Jika login gagal, beri pesan kesalahan
     $pesan = "Username atau password salah. Silakan coba lagi.";

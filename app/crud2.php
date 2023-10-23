@@ -69,22 +69,28 @@ include '../conf/con_tbproduk.php';
             </thead>
             <tbody>
               <?php
+              
               $banyakdataperhal = 5;
-              $banyakdata = mysqli_num_rows(mysqli_query($koneksi, "select * from products"));
+              $banyakdata = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM products"));
               $banyakHal = ceil($banyakdata / $banyakdataperhal);
 
+             
               if (isset($_GET['halaman'])) {
                 $halamanaktif = $_GET['halaman'];
               } else {
-                $halamanaktif = '1';
+                $halamanaktif = 1;
               }
 
-              $dataawal = ($halamanaktif * $banyakdataperhal) - $banyakdataperhal;
+             
+              $dataawal = ($halamanaktif - 1) * $banyakdataperhal;
 
               $no = 0;
-              $query = mysqli_query($koneksi, "SELECT products.*, product_categories.category_name 
+              mysqli_query($koneksi, "CREATE OR REPLACE VIEW product_view AS
+              SELECT products.*, product_categories.category_name 
               FROM products 
-              INNER JOIN product_categories ON products.category_id = product_categories.id 
+              INNER JOIN product_categories ON products.category_id = product_categories.id");
+              
+              $query = mysqli_query($koneksi, "SELECT * FROM product_view 
               LIMIT $dataawal, $banyakdataperhal");
 
               while ($row = mysqli_fetch_assoc($query)) {
@@ -154,7 +160,7 @@ include '../conf/con_tbproduk.php';
       <!-- edit -->
 
       <!-- button edit harus di taruh dibawah tr agar bisa -->
-     
+
 
       <div class="modal fade" id="modal-edit<?php echo $row['id'] ?>">
         <div class="modal-dialog">
@@ -168,7 +174,11 @@ include '../conf/con_tbproduk.php';
             <div class="modal-body">
               <!-- form start -->
               <form action="../conf/editproduk.php" method="POST">
-                
+
+
+                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+
+
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama_produk</label>
