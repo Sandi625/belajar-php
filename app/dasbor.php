@@ -36,22 +36,20 @@ include '../conf/con_tbproduk.php';
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 <section class="content">
     <?php
-
+//produk
 $queryProduk = mysqli_query($koneksi, "SELECT COUNT(*) as total_produk FROM products");
 $dataProduk = mysqli_fetch_assoc($queryProduk);
 $totalProduk = $dataProduk['total_produk'];
 
- 
+//pelanggan 
 $queryPelanggan = mysqli_query($koneksi, "SELECT COUNT(*) as total_pelanggan FROM customers");
 $dataPelanggan = mysqli_fetch_assoc($queryPelanggan);
 $totalPelanggan = $dataPelanggan['total_pelanggan'];
-
-
+//vendor
 $queryVendor = mysqli_query($koneksi, "SELECT COUNT(*) as total_vendor FROM vendors");
 $dataVendor = mysqli_fetch_assoc($queryVendor);
 $totalVendor = $dataVendor['total_vendor'];
 ?>
-
 <!-- Tampilkan statistik sederhana di halaman dashboard -->
 <div class="row">
     <div class="col-lg-4 col-6">

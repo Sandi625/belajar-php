@@ -18,7 +18,10 @@
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
+    
     </a>
+
+    
 
     <!-- Sidebar -->
     <!-- <div class="sidebar">
@@ -49,6 +52,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               
 
 
         <li class="nav-item">
@@ -60,6 +64,7 @@
             </p>
           </a>
         </li>
+        
 
 
         <li class="nav-item">
@@ -128,3 +133,67 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    <!-- Right navbar links -->
+<!-- Right navbar links -->
+<!-- Right navbar links -->
+<!-- Right navbar links -->
+<!-- Right navbar links -->
+<ul class="navbar-nav ml-auto">
+    <!-- ... (other navbar items) ... -->
+    <li class="nav-item">
+        <span id="clock" class="nav-link"></span>
+    </li>
+</ul>
+
+<script>
+    function updateClock() {
+        var now = new Date();
+        var days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+        var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        var day = days[now.getDay()];
+        var month = months[now.getMonth()];
+        var date = now.getDate();
+        var year = now.getFullYear();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        var timeString = day + ', ' + date + ' ' + month + ' ' + year + ', ' + hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+        document.getElementById("clock").textContent = timeString;
+    }
+
+
+    updateClock();
+
+ 
+    setInterval(updateClock, 1000);
+</script>
+
+<?php
+
+    date_default_timezone_set('Asia/Jakarta');
+    
+ 
+    $namaHari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
+    
+
+    $namaBulan = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+    
+  
+    $currentTimestamp = time();
+    $currentDay = $namaHari[date('w', $currentTimestamp)]; 
+    $currentMonth = $namaBulan[date('n', $currentTimestamp) - 1]; 
+    $currentDateTime = date('d', $currentTimestamp) . ' ' . $currentMonth . ' ' . date('Y, H:i:s a', $currentTimestamp);
+    echo "<script>document.getElementById('clock').textContent = '$currentDay, $currentDateTime';</script>";
+?>
+
+
+
+
+
+
+
