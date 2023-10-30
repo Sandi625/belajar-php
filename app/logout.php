@@ -6,7 +6,7 @@ unset($_SESSION['password']);
 unset($_SESSION['nama_lengkap']);
 session_destroy();
 
-header("Location: ../index.php");
+header("Location: ../login.php");
 exit();
 
 
