@@ -1,10 +1,9 @@
 <?php
 require 'function.php';
 
-// Periksa apakah pengguna sudah login, jika ya, alihkan ke halaman utama
 if(!empty($_SESSION["id"])){
   header("Location: index.php");
-  exit(); // Pastikan untuk keluar dari skrip setelah mengalihkan pengguna
+  exit(); 
 }
 
 $login = new Login();
@@ -13,14 +12,14 @@ if(isset($_POST["submit"])){
   $usernameemail = $_POST["usernameemail"];
   $password = $_POST["password"];
   
-  // Melakukan pemeriksaan login
+
   $result = $login->login($usernameemail, $password);
 
   if($result == 1){
     $_SESSION["login"] = true;
     $_SESSION["id"] = $login->idUser();
     header("Location: index.php");
-    exit(); // Pastikan untuk keluar dari skrip setelah mengalihkan pengguna
+    exit(); 
   }
   elseif($result == 10){
     echo "<script> alert('Password Salah'); </script>";

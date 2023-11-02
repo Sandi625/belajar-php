@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 class Connection{
   public $host = "localhost";
   public $user = "root";
@@ -12,32 +11,26 @@ class Connection{
     $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->db_name);
   }
 }
-
 class Register extends Connection {
   public function registration($name, $username, $email, $phone_number, $password) {
-    $group_id = 3; // Set group_id ke 3 secara otomatis
+    $group_id = 3; 
     $duplicate = mysqli_query($this->conn, "SELECT * FROM users WHERE username = '$username' OR email = '$email'");
     
     if(mysqli_num_rows($duplicate) > 0){
-      return 10; // Username or email has already taken
+      return 10; 
     } else {
-      // Gunakan prepared statement untuk mencegah SQL Injection
+     
       $stmt = $this->conn->prepare("INSERT INTO users (name, username, email, phone_number, password, group_id) VALUES (?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("sssssi", $name, $username, $email, $phone_number, $password, $group_id);
 
       if ($stmt->execute()) {
-        return 1; // Registration successful
+        return 1; 
       } else {
-        return 0; // Registration failed
+        return 0; 
       }
     }
   }
 }
-
-
-
-
-
 
 class Login extends Connection{
   public $id;
